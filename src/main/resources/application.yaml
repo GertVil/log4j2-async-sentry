@@ -1,0 +1,12 @@
+sentry:
+  debug: true
+  logging:
+    enabled: true
+    minimum-event-level: ERROR
+    minimum-breadcrumb-level: debug
+  dsn: ${CONFIGURE_DNS}
+  in-app-includes: "com.sentry"
+
+logging:
+  file:
+    name: log4j2-local.xml

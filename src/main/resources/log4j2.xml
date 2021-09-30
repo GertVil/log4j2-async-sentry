@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info" packages="org.apache.logging.log4j.core,io.sentry.log4j2">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{dd/MM/yyyy HH:mm:ss.SSS z}{Europe/Brussels}] [%X{user}] [%X{trackingId}] [%t] %-5level %logger - %msg%n"/>
+        </Console>
+        <Sentry name="Sentry"
+                debug = "true"
+                dsn="${CONFIGURE_DNS}" />
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="Sentry"/>
+        </Root>
+        <Logger name="com.sentry" level="debug"/>
+    </Loggers>
+</Configuration>
